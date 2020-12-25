@@ -19,6 +19,7 @@ let reverse_string = (string) =>{
 }
 
 // Receive command line argument
-const input_string = process.argv[2]
+// const input_string = process.argv[2]
 
+const input_string = 'Hello! My name is Devesh.'
 console.log(reverse_string(input_string))

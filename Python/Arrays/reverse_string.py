@@ -21,5 +21,14 @@ def reverse_string(string):
     return reversed_string
 
 
+# Command line argument
+# input_string = sys.argv[1]
 
-print(reverse_string(sys.argv[1]))
+""" A Few test cases """
+# input_string = None  # NULL
+# input_string = 1  #Integer
+# input_string = ['Hello!' , 'my' , 'name', 'is', 'Devesh.']  # Array
+
+input_string = 'Hello! My name is Devesh.'
+
+print(reverse_string(input_string))
