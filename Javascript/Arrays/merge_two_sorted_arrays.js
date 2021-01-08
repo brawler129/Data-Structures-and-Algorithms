@@ -1,5 +1,8 @@
 let mergeTwoSortedArrays = (arr1, arr2) =>{
     // Check whether both of them are arrays
+    if (!arr1 instanceof Array || !arr2 instanceof Array){
+        return "Please enter two arrays"
+    }
 
     // Initialize the indices
     let arr1Index = 0
