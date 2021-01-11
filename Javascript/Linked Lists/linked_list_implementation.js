@@ -31,14 +31,17 @@ class LinkedList {
     append(value){
         // Function to add a node to the end of the linked list
         let inserted_node = { value: value, next: null };
-        let current_node = this.head;
-        while(true){
-            if (current_node.next === null){
-                current_node.next = inserted_node;
-                break;
-            }
-            current_node = current_node.next
-        }
+        // let current_node = this.head;
+        // while(true){
+        //     if (current_node.next === null){
+        //         current_node.next = inserted_node;
+
+        //         break;
+        //     }
+        //     current_node = current_node.next
+        // }
+        this.tail.next = inserted_node
+        this.tail = this.tail.next
     }
 }
 
