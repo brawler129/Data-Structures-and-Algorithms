@@ -14,10 +14,10 @@ class LinkedList {
 
     constructor(initial_value){
         // Initialize Linked List from initial_value
-        this.head = new Node(initial_value)
+        this.head = new Node(initial_value);
         this.tail = this.head;
         this.length = 1;
-        this.display()
+        this.display();
     }
 
     display(){
@@ -103,6 +103,23 @@ class LinkedList {
         return this;
     }
 
+    reverse(){
+        // Reverse the linked list
+        let first = this.head;
+        this.tail = this.head;
+        let second = this.head.next;
+        first.next = null;
+        let temp = undefined;
+        while(second){
+            temp = second.next;
+            second.next = first;
+            first = second;
+            second = temp;
+        }
+        this.head = first;
+        this.display();
+    }
+
     
 }
 
@@ -115,8 +132,8 @@ myLinkedList.remove(1)
 myLinkedList.remove(3)
 myLinkedList.append(10)
 myLinkedList.prepend(3)
-myLinkedList.remove(4)
-myLinkedList.append(10)
+myLinkedList.reverse()
+myLinkedList.reverse()
 
 
 
