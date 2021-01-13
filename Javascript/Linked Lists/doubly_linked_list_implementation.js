@@ -1,5 +1,5 @@
-// Here I have created a Linked List implementation from scratch to study and
-// Better understand how linked lists work
+// Here I have created a Doubly Linked List implementation from scratch to study and
+// Better understand how doubly linked lists work
 
 
 class Node {
@@ -7,13 +7,14 @@ class Node {
     constructor(value){
         this.value = value
         this.next = null
+        this.previous = null
     }
 }
 
 class LinkedList {
 
     constructor(initial_value){
-        // Initialize Linked List from initial_value
+        // Initialize Doubly Linked List from initial_value
         this.head = new Node(initial_value)
         this.tail = this.head;
         this.length = 1;
@@ -21,13 +22,13 @@ class LinkedList {
     }
 
     display(){
-        // Function to display the linked list in a 'pretty' manner
+        // Function to display the doubly linked list in a 'pretty' manner
         let pretty_linked_list = '';
         let current_node = this.head;
         while(current_node !== null){
             pretty_linked_list += String(current_node.value);
             if(current_node.next !== null){
-                pretty_linked_list += ' ---> ';
+                pretty_linked_list += ' <---> ';
             }
             current_node = current_node.next;
         }
@@ -47,7 +48,8 @@ class LinkedList {
         // Function to add a node to the end of the linked list
         let inserted_node = new Node(value);
         this.tail.next = inserted_node;
-        this.tail = this.tail.next;
+        inserted_node.previous = this.tail;
+        this.tail = inserted_node;
         this.length++;
         this.display()
         return this;
@@ -56,7 +58,9 @@ class LinkedList {
     prepend(value){
         // Function to add to the front of the node
         let inserted_node = new Node(value);
+        inserted_node.previous = null;
         inserted_node.next = this.head;
+        this.head.previous = inserted_node;
         this.head = inserted_node;
         this.length++;
         this.display()
@@ -78,11 +82,16 @@ class LinkedList {
             return this;
         }
         let newNode = new Node(value);
-        let current_node = this.traverseToIndex(index - 1);
-        newNode.next = current_node.next;
-        current_node.next = newNode;
+        let one_down_node = this.traverseToIndex(index - 1);
+        let one_up_node = one_down_node.next;
+        newNode.next = one_up_node;
+        if (one_up_node !== null){
+            one_up_node.previous = newNode;
+        }
+        newNode.previous = one_down_node;
+        one_down_node.next = newNode;
         this.length++;
-        this.display()
+        this.display();
         return this;
     }
 
@@ -92,12 +101,16 @@ class LinkedList {
             console.log("Invalid index");
             return;
         }
-        let current_node = this.traverseToIndex(index - 1);
-        let node_to_be_removed = current_node.next;
-        current_node.next = node_to_be_removed.next;
-        if (current_node.next === null){
-            this.tail = current_node;
+        let unwanted_node = this.traverseToIndex(index);
+        let one_down_node = unwanted_node.previous;
+        let one_up_node = unwanted_node.next;
+        if (one_up_node !== null){
+            one_up_node.previous = one_down_node;
         }
+        else{
+            this.tail = one_down_node;
+        }
+        one_down_node.next = one_up_node;
         this.length--;
         this.display();
         return this;
@@ -114,9 +127,5 @@ myLinkedList.insert(1, 9)
 myLinkedList.remove(1)
 myLinkedList.remove(3)
 myLinkedList.append(10)
-myLinkedList.prepend(3)
-myLinkedList.remove(4)
-myLinkedList.append(10)
-
-
-
+myLinkedList.remove(3)
+myLinkedList.insert(1, 9)
