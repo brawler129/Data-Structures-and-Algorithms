@@ -5,6 +5,7 @@ let reverse_string = (string) =>{
         return 'Invalid Input';
     }
 
+    // If string length is 1
     if (string.length < 2){
         return string;
     }

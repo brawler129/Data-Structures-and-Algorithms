@@ -1,9 +1,12 @@
-obj1 = {'a': 'hello'}
-obj2 = obj1
-print(obj1)
-print(obj2)
 
-obj1['a'] = 'mello'
+def test_funct(**params):
+    print(params)
+    
+    
+params = {
+    'first_name': 'Devesh',
+    'last_name': 'Pradhan'
+}
 
-print(obj1)
-print(obj2)
+params['age'] = 22
+test_funct(**params)

@@ -15,5 +15,5 @@ function find_first_recurring_character(arr){
     return "No recurring items"
 }
 
-arr = [1,2,3,4]
+arr = [1,2,2,3,4,1]
 console.log(find_first_recurring_character(arr))
