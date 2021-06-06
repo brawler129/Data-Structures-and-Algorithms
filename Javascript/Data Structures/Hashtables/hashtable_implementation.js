@@ -21,7 +21,7 @@ class HashTable {
       const hashed_key = this._hash(key);
       if (this.data[hashed_key] instanceof Array){
         // Since two different keys can be hashed into the same value
-        // We create a buckey_list at each index of the data Array. i.e an
+        // We create a bucket_list at each index of the data Array. i.e an
         // array of arrays. If same key exists then replace existing value
         // of key with new value.
         for (let item of this.data[hashed_key]){
