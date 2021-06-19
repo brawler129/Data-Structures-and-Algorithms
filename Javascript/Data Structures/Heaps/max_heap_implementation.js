@@ -1,5 +1,4 @@
-
-
+// Here I have implemented Max Heap to better understand and study Heaps.
 
 class MaxHeap{
     constructor(){
