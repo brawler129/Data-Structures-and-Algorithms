@@ -27,7 +27,6 @@ class Queue{
             queue.push(currentNode.value)
             currentNode = currentNode.next
         }
-        console.log(queue)
         return
     }
 
@@ -36,7 +35,6 @@ class Queue{
             console.log("Empty")
             return
         }
-        console.log(this.first.value)
         return this.first.value
     }
 
@@ -65,7 +63,6 @@ class Queue{
         if(!this.first){
             this.last = null;
         }
-        console.log(dequeuedNode.value)
         return dequeuedNode.value
     }
 
@@ -75,13 +72,15 @@ class Queue{
 }
 
 
-let myQueue = new Queue()
-myQueue.display()
-myQueue.enqueue(1)
-myQueue.enqueue(3)
-myQueue.enqueue(4)
-myQueue.dequeue()
-myQueue.peek()
-myQueue.enqueue(10)
-myQueue.dequeue()   
-myQueue.display()
+// let myQueue = new Queue()
+// myQueue.display()
+// myQueue.enqueue(1)
+// myQueue.enqueue(3)
+// myQueue.enqueue(4)
+// myQueue.dequeue()
+// myQueue.peek()
+// myQueue.enqueue(10)
+// myQueue.dequeue()   
+// myQueue.display()
+
+exports.Queue = Queue;

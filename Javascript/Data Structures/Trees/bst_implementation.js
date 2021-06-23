@@ -162,11 +162,15 @@ class BinarySearchTree{
     }
 }
 
-let myBst = new BinarySearchTree([20, 10, 30, 25, 21, 24])
 
-myBst.remove(20)
+// let myBst = new BinarySearchTree([20, 10, 30, 25, 21, 24])
 
-console.log(JSON.stringify(traverse(myBst.root)))
+// myBst.remove(20)
+
+// console.log(JSON.stringify(traverse(myBst.root)))
+
+exports.BinarySearchTree = BinarySearchTree;
+exports.traverse = traverse;
 
 
 
