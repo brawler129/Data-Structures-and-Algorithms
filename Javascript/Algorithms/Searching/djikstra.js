@@ -22,7 +22,7 @@ class Dijkstras {
                 continue;
             }
             spg[vertex] = [Infinity, null];
-        }
+        }   
         return spg;
     }
 
@@ -51,6 +51,7 @@ class Dijkstras {
         // Find shortest path from given vertex to all other vertices
         // Return the SPG for the vertex
         this.spg = this.initializeSPG(vertex); // Shortest Path Graph // O(v)
+        
         while (this.unprocessedSet.length > 0){ // O(v(2v))  => O (v^2)
             let currentVertex = this.findNextVertex(); // O(v)
             if (!currentVertex){
